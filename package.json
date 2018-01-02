@@ -7,5 +7,24 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Tim Chase",
-  "license": "ISC"
+  "license": "ISC",
+  "_moduleAliases": {
+    "@root": ".",
+    "@BudgetManager": "./services/BudgetAPI",
+    "@BudgetManagerModels": "./services/BudgetAPI/app/models",
+    "@BudgetManagerAPI": "./services/BudgetAPI/config/app.js",
+    "@config": "./services/BudgetAPI/config/index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "consign": "^0.1.6",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.0",
+    "module-alias": "^2.0.3",
+    "mongoose": "^5.0.0-rc1",
+    "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^3.0.1"
+  }
 }
