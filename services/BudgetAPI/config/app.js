@@ -19,6 +19,12 @@ app.use(cors())
 app.use(passport.initialize())
 
 app.set('budgetsecret', config.secret)
+consign({cws: 'services'})
+    .include('BudgetAPI/app/setup')
+    .then('BudgetAPI/app/api')
+    .then('BudgetAPI/app/routes')
+    .into(app)
+module.exports = app;
 // cors alt
 // app.use(function (req, res, next) {
 //     res.header("Access-Control-Allow-Origin", "*");
