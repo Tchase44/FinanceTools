@@ -10,10 +10,10 @@
   "license": "ISC",
   "_moduleAliases": {
     "@root": ".",
-    "@BudgetManager": "./services/BudgetAPI",
-    "@BudgetManagerModels": "./services/BudgetAPI/app/models",
-    "@BudgetManagerAPI": "./services/BudgetAPI/config/app.js",
-    "@config": "./services/BudgetAPI/config/index.js"
+    "@BudgetManager": "./services/BudgetManagerAPI",
+    "@BudgetManagerModels": "./services/BudgetManagerAPI/app/models",
+    "@BudgetManagerAPI": "./services/BudgetManagerAPI/config/app.js",
+    "@config": "./services/BudgetManagerAPI/config/index.js"
   },
   "dependencies": {
     "body-parser": "^1.18.2",

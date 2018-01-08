@@ -20,9 +20,9 @@ app.use(passport.initialize())
 
 app.set('budgetsecret', config.secret)
 consign({cws: 'services'})
-    .include('BudgetAPI/app/setup')
-    .then('BudgetAPI/app/api')
-    .then('BudgetAPI/app/routes')
+    .include('BudgetManagerAPI/app/setup')
+    .then('BudgetManagerAPI/app/api')
+    .then('BudgetManagerAPI/app/routes')
     .into(app)
 module.exports = app;
 // cors alt
