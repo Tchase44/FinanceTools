@@ -9,7 +9,7 @@ module.exports = (passport) => {
 
     const parameters = {
         secretOrKey: config.secret,
-        jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken()
+        jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken()
     }
 // idk what this does nor how
     passport.use(new Strategy(parameters, (payload, done)=>{
