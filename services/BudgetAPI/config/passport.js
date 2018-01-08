@@ -1,5 +1,3 @@
-import { ExtractJwt } from '../../../../../../AppData/Local/Microsoft/TypeScript/2.6/node_modules/@types/passport-jwt';
-
 const PassportJWT = require('passport-jwt'),
       ExtractJWT = PassportJWT.ExtractJwt,
       Strategy = PassportJWT.Strategy,

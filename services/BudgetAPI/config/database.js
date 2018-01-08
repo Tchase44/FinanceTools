@@ -1,5 +1,6 @@
 module.exports = (mongoose, config) => {
     const database = mongoose.connection;
+    // mongoose promis library
     mongoose.Promise = Promise;
 
     mongoose.connect(config.database, {
