@@ -20,7 +20,7 @@ api.index = (User, BudgetToken) => (req,res) =>{
 
     if(token){
         User.find({},(error, users)=>{
-            if(error){thorw error}
+            if(error){thorw error;};
             res.status(200).json(users)
         })
     }else{
