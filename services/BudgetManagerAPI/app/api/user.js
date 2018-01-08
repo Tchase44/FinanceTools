@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const api = {};
 // should not exist in production
-api.setup = (User)=>(req.res)=>{
+api.setup = (User)=>(req,res)=>{
     const admin = new User({
         username:'bender',
         password:'benderisgreat',
@@ -20,7 +20,7 @@ api.index = (User, BudgetToken) => (req,res) =>{
 
     if(token){
         User.find({},(error, users)=>{
-            if(error){thorw error;};
+            if(error){throw error;};
             res.status(200).json(users)
         })
     }else{
