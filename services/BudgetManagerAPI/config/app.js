@@ -23,7 +23,7 @@ consign({cwd: 'services'})
     .include('BudgetManagerAPI/app/setup/')
     .then('BudgetManagerAPI/app/api/')
     .then('BudgetManagerAPI/app/routes/')
-    .into(app)
+    .into(app);
     // cors alt
     // app.use(function (req, res, next) {
     //     res.header("Access-Control-Allow-Origin", "*");

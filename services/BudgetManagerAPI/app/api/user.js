@@ -14,7 +14,7 @@ api.setup = (User)=>(req,res)=>{
         res.json({success:true});
     })
 }
-
+// end
 api.index = (User, BudgetToken) => (req,res) =>{
     const token = BudgetToken;
 
@@ -27,6 +27,7 @@ api.index = (User, BudgetToken) => (req,res) =>{
         return res.status(403).send({success:false, message:'Unauthorized'})
     }
 }
+
 api.signUp = (User) = (req,res) =>{
     if(!req.body.username || !req.body.password){
         res.json({success:false,message:'need username and password'})
