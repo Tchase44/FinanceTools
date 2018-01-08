@@ -28,7 +28,7 @@ api.index = (User, BudgetToken) => (req,res) =>{
     }
 }
 
-api.signUp = (User) = (req,res) =>{
+api.signUp = (User) => (req,res) =>{
     if(!req.body.username || !req.body.password){
         res.json({success:false,message:'need username and password'})
     }else{

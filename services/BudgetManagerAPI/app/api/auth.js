@@ -4,7 +4,7 @@ const mongoose = require('mongoose'),
 
 const api = {};
 // two '=' signs ??
-api.login = (User) = (req,res) => {
+api.login = (User) => (req,res) => {
     User.findOne({ username: req.body.username }, (error,user)=>{
         if(error){ throw error};
         if(!user){

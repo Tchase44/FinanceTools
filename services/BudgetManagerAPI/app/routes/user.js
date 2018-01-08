@@ -1,6 +1,6 @@
 const passport = require('passport'),
       config = require('@config'),
-      models = require('@BudgetManagerAPI/app/setup');
+      models = require('@BudgetManagerAPI');
 
 module.exports = (app) =>{
     const api = app.BudgetManagerAPI.app.api.user;
@@ -10,5 +10,5 @@ module.exports = (app) =>{
     app.route('/api/v1/users')
        .get(passport.authenticate('jwt',config.session), api.index(models.User,app.get('budgetsecret')));
     app.route('/api/v1/signup')
-       .post(api.signup(models.User));
+       .post(api.signUp(models.User));
 }
