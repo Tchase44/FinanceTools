@@ -1,17 +1,18 @@
 const mongoose = require('mongoose');
+const User = mongoose.model('User');
 
 const api = {};
 // should not exist in production
-api.setup = (User)=>(req,res)=>{
+api.setup = (User) => (req, res) => {
     const admin = new User({
-        username:'bender',
-        password:'benderisgreat',
-        clients:[]
-    })
-    admin.save(error=>{
-        if(error){throw error}
-        console.log('Admin account setup successfully');
-        res.json({success:true});
+        username: 'bender',
+        password: 'bender',
+        clients: []
+    });
+    admin.save(error => {
+        if (error) throw error;
+        console.log('Admin account was succesfully set up');
+        res.json({ success: true });
     })
 }
 // end
@@ -28,7 +29,7 @@ api.index = (User, BudgetToken) => (req,res) =>{
     }
 }
 
-api.signUp = (User) => (req,res) =>{
+api.signup = (User) => (req,res) =>{
     if(!req.body.username || !req.body.password){
         res.json({success:false,message:'need username and password'})
     }else{
