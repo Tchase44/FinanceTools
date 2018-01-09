@@ -4,7 +4,7 @@ const User = mongoose.model('User');
 const api = {};
 // should not exist in production
 api.setup = (User) => (req, res) => {
-    const admin = new User({
+    const admin = User.create({
         username: 'bender',
         password: 'bender',
         clients: []
