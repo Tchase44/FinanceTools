@@ -12,10 +12,21 @@ export default {
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+<style lang="scss">
+@import "./assets/styles";
+
+body{
+  // background: url("./assets/images/backy.jpg") no-repeat center center fixed;
+  &:after{
+    content: '';
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: $background-tint;
+    opacity: .3;
+    z-index:-1;
+  }
 }
 </style>
