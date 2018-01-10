@@ -10,8 +10,7 @@ const User = mongoose.Schema({
     password: {
         type: String,
         required: true
-    },
-    clients: [{}]
+    }
 });
 
 User.pre('save', function (next) {
