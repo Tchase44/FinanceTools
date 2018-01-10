@@ -103,7 +103,6 @@ export default {
 @import "./../../../assets/styles";
     .login {
         background: #444555;
-        opacity: 0.25;
         padding: 15px;
         margin:30px auto;
         min-width: 270px;

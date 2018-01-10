@@ -18,8 +18,8 @@
 <script>
 import Axios from 'axios';
 import Authentication from "@/components/pages/Authentication";
-import BudgetListHeader from './../Budget/BudgetListHeader';
-import BudgetListBody from './../Budget/BudgetListBody';
+import BudgetListHeader from '../Budget/BudgetListHeader';
+import BudgetListBody from '../Budget/BudgetListBody';
 
 const BudgetManagerAPI = `https://${window.location.hostname}:3001`
 export default {
@@ -33,7 +33,6 @@ export default {
       }
   },
   mounted(){
-      //is this a good idea?
       this.getAllBudgets()
   },
   methods: {

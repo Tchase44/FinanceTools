@@ -6,8 +6,11 @@ import Home from '@/components/pages/Home'
 import Authentication from '../components/pages/Authentication/Authentication'
 // Global
 import Header from '@/components/Header'
+import BudgetList from '@/components/Budget/BudgetList'
 
 Vue.component("app-header", Header)
+Vue.component("budget-list",BudgetList)
+
 Vue.use(Router)
 
 const router = new Router({
@@ -17,7 +20,8 @@ const router = new Router({
       name: 'Home',
       components: {
         default: Home,
-        header: Header
+        header: Header,
+        budgetList: BudgetList
       },
       meta: {
         // Nav gaurd
