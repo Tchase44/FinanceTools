@@ -1,6 +1,6 @@
 <template>
   <section class="1-budget-body">
-    	<div class="md-budget" v-if="budgets != null" v-for="budget in budgets">
+    	<div class="md-budget" v-if="budgets != null" v-for="budget in budgets" :key="budget.state">
     		<div class="md-budget-info white--text">{{budget.client}}</div>
     		<div class="md-budget-info white--text">{{budget.title}}</div>
     		<div class="md-budget-info white--text">{{budget.state}}</div>
@@ -25,7 +25,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 // copy pasted
 @import "./../../assets/styles";
   .l-budget-body {

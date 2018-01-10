@@ -1,5 +1,5 @@
 <template>
-  <header class="md-budget-header">
+  <header class="1-budget-header">
     <div class="md-budget-header white--text">Client</div>
     <div class="md-budget-header white--text">Title</div>
     <div class="md-budget-header white--text">Status</div>
@@ -11,7 +11,7 @@
 export default {}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 // copy pasted
   @import "./../../assets/styles";
   .l-budget-header {

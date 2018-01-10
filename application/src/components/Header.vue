@@ -46,7 +46,7 @@ export default {
       }
   },
   methods: {
-      sudmitSignOut(){
+      submitSignOut(){
           Authentication.signout(this, '/login')
       }
   }

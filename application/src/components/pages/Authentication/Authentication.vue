@@ -57,8 +57,7 @@
             </v-btn>
           </v-form>
       </div>
-      <v-snackbar timeout="6000"
-                  bottom="bottom"
+      <v-snackbar bottom="bottom"
                   color="red lighten-1"
                   v-model="snackbar">
           {{message}}

@@ -29,7 +29,7 @@ export default {
     },
   data(){
       return{
-          budgets:[]
+          budgets:[{client: 'WubWub',title: 'BassCannon',state:'MD'}]
       }
   },
   mounted(){

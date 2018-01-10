@@ -1,7 +1,7 @@
 const mongoose = require('mongoose'),
       UserModel = require('@BudgetManagerModels/user'),
       BudgetModel = require('@BudgetManagerModels/budget'),
-      ClientModel = require('@BudgetManagerModel/clients')
+      ClientModel = require('@BudgetManagerModels/clients')
       
 const models = {
     User: mongoose.model('User'),
