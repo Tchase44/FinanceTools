@@ -72,4 +72,5 @@ export default {
     .btn {
       margin-top: 15px;
     }
+  }
 </style>

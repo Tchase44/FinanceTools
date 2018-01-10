@@ -4,7 +4,10 @@ import * as Auth from '@/components/pages/Authentication'
 // pages
 import Home from '@/components/pages/Home'
 import Authentication from '../components/pages/Authentication/Authentication'
+// Global
+import Header from '@/components/Header'
 
+Vue.component("app-header", Header)
 Vue.use(Router)
 
 const router = new Router({
@@ -12,7 +15,10 @@ const router = new Router({
     {
       path: '/',
       name: 'Home',
-      component: Home,
+      components: {
+        default: Home,
+        header: Header
+      },
       meta: {
         // Nav gaurd
         requiredAuth: true
