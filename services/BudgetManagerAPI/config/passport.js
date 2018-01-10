@@ -12,11 +12,11 @@ module.exports = (passport) => {
         jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken()
     }
 // idk what this does nor how
-    passport.use(new Strategy(parameters, (payload, done)=>{
-        User.findOne({ id: payload.id }, (error,done)=>{
-            if(error) return done(error, false)
-            if(user) done(null,user)
-            else done(null, false)
-        })
-    }))
+    passport.use(new Strategy(parameters, (payload, done) => {
+        User.findOne({ id: payload.id }, (error, user) => {
+            if (error) return done(error, false);
+            if (user) done(null, user);
+            else done(null, false);
+        });
+    }));
 }

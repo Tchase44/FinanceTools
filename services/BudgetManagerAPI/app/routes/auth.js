@@ -6,5 +6,5 @@ module.exports = (app) => {
     app.route('/')
         .get((req,res)=>{res.send('Budget Manager API')})
     app.route('/api/v1/auth')
-        .get(api.login(models.User))
+        .post(api.login(models.User))
 }

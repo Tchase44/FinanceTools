@@ -1,43 +1,40 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
-const User = new mongoose.Schema({
-    username:{
+const User = mongoose.Schema({
+    username: {
         type: String,
         unique: true,
         required: true
     },
-    password:{
+    password: {
         type: String,
         required: true
     },
-    clients:[{}]
-})
+    clients: [{}]
+});
 
-User.pre('save',function(next){
+User.pre('save', function (next) {
     const user = this;
-
-    if(this.isModified('password') || this.isNew){
-        bcrypt.genSalt(10, (error,salt)=>{
-            if(error) return next(error);
-            
-            bcrypt.hash(user.password, salt, (error,hash)=>{
+    if (this.isModified('password') || this.isNew) {
+        bcrypt.genSalt(10, (error, salt) => {
+            if (error) return next(error);
+            bcrypt.hash(user.password, salt, (error, hash) => {
                 if (error) return next(error);
-
                 user.password = hash;
-                next()
-            })
-        })
-    }else{
-        return next()
+                next();
+            });
+        });
+    } else {
+        return next();
     }
-})
+});
 
-User.methods.comparePassword = function(password, callback){
-    bcrypt.compare(password, this.password, (error, matches)=>{
-        if(error) {return callback(error)}
-        callback(null, matches)
-    })
-}
+User.methods.comparePassword = function (password, callback) {
+    bcrypt.compare(password, this.password, (error, matches) => {
+        if (error) return callback(error);
+        callback(null, matches);
+    });
+};
 
 mongoose.model('User', User);

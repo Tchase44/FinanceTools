@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
-const User = mongoose.model('User');
+// const User = mongoose.model('User');
 
 const api = {};
 // should not exist in production
 api.setup = (User) => (req, res) => {
-    const admin = User.create({
+    const admin = new User({
         username: 'bender',
         password: 'bender',
         clients: []
@@ -16,17 +16,14 @@ api.setup = (User) => (req, res) => {
     })
 }
 // end
-api.index = (User, BudgetToken) => (req,res) =>{
+api.index = (User, BudgetToken) => (req, res) => {
     const token = BudgetToken;
-
-    if(token){
-        User.find({},(error, users)=>{
-            if(error){throw error;};
-            res.status(200).json(users)
-        })
-    }else{
-        return res.status(403).send({success:false, message:'Unauthorized'})
-    }
+    if (token) {
+        User.find({}, (error, users) => {
+            if (error) throw error;
+            res.status(200).json(users);
+        });
+    } else return res.status(403).send({ success: false, message: 'Unauthorized' });
 }
 
 api.signup = (User) => (req,res) =>{
