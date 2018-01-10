@@ -89,7 +89,14 @@ export default {
             message : ''
         }
     },
-    methods:{}
+    methods:{
+        submitAuthentication(){
+            Authentication.authenticate(this,this.credentials,'/')
+        },
+        submitSignUp(){
+            Authentication.signup(this,this.newUser, '/')
+        }
+    }
 }
 </script>
 <style scoped>
