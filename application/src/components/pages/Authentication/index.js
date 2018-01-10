@@ -10,8 +10,9 @@ export default {
 // redirect = router path
     authenticate (context, credentials, redirect){
         Axios.post(`${BudgetManagerAPI}/api/v1/auth`,credentials)
-        .then(({data: {token}})=>{
-            context.$cookie.set('token',token,'1D')
+        .then((data)=>{
+            context.$cookie.set('token', data.token,'1D')
+            context.$cookie.set('user_id', data.user_id,'1D')
             context.validLogin = true
             this.user.authenticated = true
 
@@ -23,22 +24,26 @@ export default {
     },
     signup (context, credentials, redirect){
         Axios.post(`${BudgetManagerAPI}/api/v1/signup`,credentials)
-        .then(({data: {token}})=>{
-            context.$cookie.set('token',token, '1D')
-            context.valisSignUp = true
-            this.user.authenticated = true
-
-            if (redirect) router.push(redirect)
+        .then(() => {
+            context.validSignUp = true
+            this.authenticate(context, credentials, redirect)
         }).catch(({ response: { data } }) => {
             context.snackbar = true
             context.message = data.message
         })
     },
+    signout(context,redirect){
+        context.$cookie.delete('token')
+        context.$cookie.delete('user_id')
+        this.user.authenticate = false
+
+        if(redirect) router.push(redirect)
+    },
     checkAuthentication(){
         const token = document.cookie
-
-        if(token) this.user.authenticated = true
-        else this.user.authenticated = false
+        this.user.authenticated = !!token
+        // if(token) this.user.authenticated = true
+        // else this.user.authenticated = false
     },
     getAuthenticationHeader(context){
         return `Bearer ${context.$cookie.get('token')}`
